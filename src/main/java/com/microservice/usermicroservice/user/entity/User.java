@@ -1,4 +1,4 @@
-package com.microservice.usermicroservice.entity;
+package com.microservice.usermicroservice.user.entity;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;

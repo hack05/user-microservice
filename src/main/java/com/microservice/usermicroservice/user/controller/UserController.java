@@ -1,4 +1,4 @@
-package com.microservice.usermicroservice.controller;
+package com.microservice.usermicroservice.user.controller;
 
 import java.util.List;
 
@@ -9,9 +9,8 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.microservice.usermicroservice.entity.User;
-import com.microservice.usermicroservice.model.Spotify;
-import com.microservice.usermicroservice.service.UserService;
+import com.microservice.usermicroservice.user.entity.User;
+import com.microservice.usermicroservice.user.service.UserService;
 
 @RestController
 @RequestMapping("/user")
@@ -36,24 +35,5 @@ public class UserController {
 		return ResponseEntity.ok(user);
 	}
 	
-	
-	
-	@GetMapping("/spotify/all")
-	public ResponseEntity<List<Spotify>> getAllGenre(){
-		List<Spotify> genre = userService.getAllGenre();
-		if(genre==null)
-			return ResponseEntity.notFound().build();
-		return ResponseEntity.ok(genre);
-	}
-	
-	
-	@GetMapping("/spotify/{clientId}")
-	public ResponseEntity<List<Spotify>> getGenre(@PathVariable("clientId") String clientId){
-		User user = userService.getUserById(clientId);
-		if(user == null)
-			return ResponseEntity.notFound().build();
-		List<Spotify> genre = userService.getGenre(clientId);
-		return ResponseEntity.ok(genre);
-	}
 
 }
