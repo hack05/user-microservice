@@ -1,5 +1,6 @@
 package com.microservice.usermicroservice.music.entity;
 
+import java.io.Serializable;
 import java.util.List;
 
 import javax.persistence.Entity;
@@ -19,12 +20,14 @@ import lombok.Setter;
 @Getter
 @Setter
 @Entity
-public class Genre {
+public class Genre implements Serializable{
 
 	@Id
 	private Long id;
 	private String name;
 	
-	@OneToMany(fetch = FetchType.EAGER)
+	@OneToMany(mappedBy = "genre", fetch = FetchType.EAGER)
 	private List<Track> list;
+	
+	private static final long serialVersionUID = -438550027517015175L;
 }

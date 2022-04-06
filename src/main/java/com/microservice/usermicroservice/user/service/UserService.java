@@ -23,8 +23,16 @@ public class UserService {
 		return iUserRepository.findAll();
 	}
 	
-	public User getUserById(String id) {
+	public User getUserById(Long id) {
 		return iUserRepository.findById(id).orElse(null);
+	}
+	
+	public void deleteById(Long id) {
+		iUserRepository.deleteById(id);
+	}
+	
+	public void delete(User user) {
+		iUserRepository.delete(user);
 	}
 	
 	

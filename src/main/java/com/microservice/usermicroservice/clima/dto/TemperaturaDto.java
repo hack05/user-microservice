@@ -1,8 +1,9 @@
 package com.microservice.usermicroservice.clima.dto;
 
-
+import java.util.Collection;
 
 import com.microservice.usermicroservice.music.entity.Genre;
+import com.microservice.usermicroservice.music.entity.Track;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -19,4 +20,5 @@ public class TemperaturaDto {
 
 	private Double temp;
 	private Genre genre;
+	private Collection<Track> track;
 }

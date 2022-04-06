@@ -64,4 +64,17 @@ public class CiudadService {
 		return ciudadRespuesta;
 		
 		}
+	
+	//relacion para obtener ciudad por usuario 
+	@SuppressWarnings("null")
+	public List<Ciudad> findAllByUser (Long id){
+		List<Ciudad> ciudadActual= new ArrayList<>();
+		List<Ciudad> ciudad = iCiudadRepository.findAll();
+		for(int i=0; i<ciudad.size();i++) {
+			if(ciudad.get(i).getUser().get(i).getId()==id) {
+				ciudadActual.add(ciudad.get(i));
+			}
+		}
+		return ciudadActual;
+	}
 }

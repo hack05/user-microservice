@@ -1,5 +1,7 @@
 package com.microservice.usermicroservice.music.entity;
 
+import java.io.Serializable;
+
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.Id;
@@ -20,7 +22,7 @@ import lombok.Setter;
 @Getter
 @Setter
 @Entity
-public class Track {
+public class Track implements Serializable{
 
 	@Id
 	private Long id;
@@ -33,4 +35,6 @@ public class Track {
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name= "temperatura_id")
 	private Temperatura temperatura;
+	
+	private static final long serialVersionUID = -1560977074883949158L;
 }
